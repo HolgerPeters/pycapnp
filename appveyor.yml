@@ -1,36 +1,18 @@
-version: '{branch} - #{build}'
-
-image: Visual Studio 2015
-
-platform:
-  - x64
-
-environment:
-  matrix:
-    - PYTHON: C:\Python36-x64
-      PYTHON_VERSION: 3.6
-
-    # second group
-    #- PYTHON: C:\Python35-x64
-      #PYTHON_VERSION: 3.5
-
-    #- PYTHON: C:\Python37-x64
-      #PYTHON_VERSION: 3.7
+image: ubuntu
 
 install:
   # We need wheel installed to build wheels
-  - "%PYTHON%\\python.exe -m pip install pipenv"
-  - "%PYTHON%\\python.exe -m pip install wheel"
-  - "%PYTHON%\\python.exe -m pipenv install --dev"
-  - "%PYTHON%\\python.exe -m pipenv install --dev -e ."
+  - sh: python -m pip install pipenv
+  - sh: python -m pipenv install --dev
+  - sh: python -m pipenv install --dev -e .
 
 build: off
 
 test_script:
-  - "build.cmd %PYTHON%\\python.exe -m pipenv run pytest"
+  - sh: python -m pipenv run pytest
 
 after_test:
-  - "build.cmd %PYTHON%\\python.exe -m pipenv run python setup.py bdist_wheel"
+  - sh: python -m pipenv run python setup.py bdist_wheel
 
 artifacts:
-  - path: dist\*
+  - path: dist/*

@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 pypandoc = "*"
+pycapnp = {editable = true,path = "."}
 
 [packages]
 jinja2 = "*"
