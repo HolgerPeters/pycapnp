@@ -152,6 +152,7 @@ setup(
         'build_ext': build_libcapnp_ext
     },
     install_requires=[],
+    setup_requires=['pypandoc'],
     entry_points={
         'console_scripts' : ['capnpc-cython = capnp._gen:main']
     },
