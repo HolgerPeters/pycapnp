@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "69bfa24d45e32db14c8a3806f4194f0568981e05b26784b60b8c02ad72580679"
+            "sha256": "a2200b2f0f7bb4cbbd5bd897a32b797f8efd324c751b69db20dbad51ad79751d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -176,20 +176,6 @@
         "pycapnp": {
             "editable": true,
             "path": "."
-        },
-        "pypandoc": {
-            "hashes": [
-                "sha256:e914e6d5f84a76764887e4d909b09d63308725f0cbb5293872c2c92f07c11a5b"
-            ],
-            "index": "pypi",
-            "version": "==1.4"
-        },
-        "wheel": {
-            "hashes": [
-                "sha256:66a8fd76f28977bb664b098372daef2b27f60dc4d1688cfab7b37a09448f0e9d",
-                "sha256:8eb4a788b3aec8abf5ff68d4165441bc57420c9f64ca5f471f58c3969fe08668"
-            ],
-            "version": "==0.33.1"
         }
     }
 }

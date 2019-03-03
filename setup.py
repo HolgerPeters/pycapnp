@@ -41,17 +41,10 @@ from .lib.capnp import _CAPNP_VERSION as LIBCAPNP_VERSION
 
 write_version_py()
 
-# Try to convert README using pandoc
-try:
-    import pypandoc
-    long_description = pypandoc.convert('README.md', 'rst')
-    changelog = pypandoc.convert('CHANGELOG.md', 'rst')
-    changelog = '\nChangelog\n=============\n' + changelog
-    long_description += changelog
-except (IOError, ImportError):
-    if sys.argv[2] == 'sdist':
-        raise
-    long_description = ''
+long_description = open('README.md').read()
+changelog = open('CHANGELOG.md').read()
+changelog = '\nChangelog\n=============\n' + changelog
+long_description += changelog
 
 # Clean command, invoked with `python setup.py clean`
 from distutils.command.clean import clean as _clean
@@ -152,13 +145,13 @@ setup(
         'build_ext': build_libcapnp_ext
     },
     install_requires=[],
-    setup_requires=['pypandoc'],
     entry_points={
         'console_scripts' : ['capnpc-cython = capnp._gen:main']
     },
     # PyPi info
     description="A cython wrapping of the C++ Cap'n Proto library",
     long_description=long_description,
+    long_description_content_type='text/markdown',
     license='BSD',
     author="Jason Paryani",
     author_email="pypi-contact@jparyani.com",

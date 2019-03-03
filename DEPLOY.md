@@ -5,7 +5,7 @@ This file is meant for maintainers of pycapnp, and documents the process for upl
 ## Pre-requisites
 
 ```
-pip install pypandoc cython
+pip install cython
 ```
 
 ## Run tests

@@ -3,7 +3,7 @@ image: ubuntu
 install:
   # We need wheel installed to build wheels
   - sh: python -m pip install --user pipenv
-  - sh: python -m pipenv install --dev
+  - sh: python -m pipenv --python $(which python3) install --dev
   - sh: python -m pipenv install --dev -e .
 
 build: off
